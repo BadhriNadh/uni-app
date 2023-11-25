@@ -4,12 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.roomdb.entities.Accessibility
+import com.example.roomdb.entities.IncidentReport
 import com.example.roomdb.entities.TodoItem
 
-@Database(entities = [TodoItem::class], version = 1)
+@Database(entities = [TodoItem::class, IncidentReport::class, Accessibility::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun todoItemDao(): TodoItemDao
+    abstract fun incidentReportDao(): IncidentReportDao
+    abstract fun accessibilityDao(): AccessibilityDao
 
     companion object {
         @Volatile
