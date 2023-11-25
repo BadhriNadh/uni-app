@@ -1,60 +1,97 @@
 package com.example.roomdb.Fragments.HelpFrags
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.roomdb.R
+import com.example.roomdb.database.AppDatabase
+import com.example.roomdb.databinding.FragmentIncidentReportFormBinding
+import com.example.roomdb.entities.IncidentReport
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.Calendar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [IncidentReportFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class IncidentReportFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentIncidentReportFormBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_incident_report, container, false)
+        _binding = FragmentIncidentReportFormBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment IncidentReportFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            IncidentReportFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.submitButton.setOnClickListener {
+            val studentName = binding.studentNameEditText.text.toString()
+            val incidentTime = "${binding.incidentTimePicker.hour}:${binding.incidentTimePicker.minute}"
+            val incidentDate = "${binding.incidentDatePicker.year}-${binding.incidentDatePicker.month + 1}-${binding.incidentDatePicker.dayOfMonth}"
+            val incidentLocation = binding.incidentLocationEditText.text.toString()
+            val incidentDescription = binding.incidentDescriptionEditText.text.toString()
+
+            if (studentName.isNotEmpty() && incidentTime.isNotEmpty() &&
+                incidentDate.isNotEmpty() && incidentLocation.isNotEmpty() &&
+                incidentDescription.isNotEmpty()
+            ) {
+                val incidentReport = IncidentReport(
+                    id = 0, // Auto-generated ID
+                    studentName = studentName,
+                    incidentTime = incidentTime,
+                    incidentDate = incidentDate,
+                    incidentLocation = incidentLocation,
+                    incidentDescription = incidentDescription
+                )
+
+                // Save the Incident Report to the Room Database
+                saveIncidentReport(incidentReport)
             }
+        }
+    }
+
+    private fun saveIncidentReport(incidentReport: IncidentReport) {
+        GlobalScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                // Get the Room Database instance
+                val database = AppDatabase.getDatabase(requireContext())
+
+                // Insert the Incident Report into the database
+                database.incidentReportDao().insertIncidentReport(incidentReport)
+            }
+
+            // Clear the input fields after saving
+            clearInputFields()
+        }
+    }
+
+    private fun clearInputFields() {
+        binding.studentNameEditText.text.clear()
+        binding.incidentLocationEditText.text.clear()
+        binding.incidentDescriptionEditText.text.clear()
+
+        // Set default values for incidentTime and incidentDate
+        binding.incidentTimePicker.hour = 0
+        binding.incidentTimePicker.minute = 0
+
+        val calendar = Calendar.getInstance()
+        binding.incidentDatePicker.updateDate(
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
