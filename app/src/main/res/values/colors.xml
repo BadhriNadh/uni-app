@@ -10,6 +10,8 @@
     <color name="wingtip_black">#242424</color>
     <color name="beak_gold">#FFD400</color>
     <color name="cloud_white">#FFFFFF</color>
+    <color name="light_beak_gold">#FFF0A8</color>
+
 
 
 </resources>
