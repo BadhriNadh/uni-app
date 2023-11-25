@@ -17,7 +17,9 @@
         app:tabBackground="@color/beak_gold"
         app:tabIndicatorColor="#755700"
         app:tabSelectedTextColor="#755700"
-        app:tabTextColor="@color/wingtip_black">
+        app:tabTextColor="@color/wingtip_black"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
+        >
 
     </com.google.android.material.tabs.TabLayout>
 
