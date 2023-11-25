@@ -1,60 +1,111 @@
 package com.example.roomdb.Fragments.HelpFrags
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import com.example.roomdb.R
+import com.example.roomdb.database.AccessibilityDao
+import com.example.roomdb.database.AppDatabase
+import com.example.roomdb.databinding.FragmentAccessibilityFormBinding
+import com.example.roomdb.entities.Accessibility
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.Calendar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AccessibilityFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AccessibilityFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    // Add an array of request types
+    private val requestTypes = arrayOf("Exam Accomodation", "Laptop Loans", "Writing Assistant", "Teaching Assistant", "Grocery")
+    private var _binding: FragmentAccessibilityFormBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_accessibility, container, false)
+        _binding = FragmentAccessibilityFormBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AccessibilityFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AccessibilityFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Initialize the ArrayAdapter with the array of request types
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, requestTypes)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        // Set the adapter to the Spinner
+        binding.requestTypeSpinner.adapter = adapter
+
+        binding.submitButton.setOnClickListener {
+            val studentName = binding.studentNameEditText.text.toString()
+            val studentId = binding.studentIdEditText.text.toString()
+            val requestType = binding.requestTypeSpinner.selectedItem.toString()
+            val time = "${binding.timePicker.hour}:${binding.timePicker.minute}"
+            val date = "${binding.datePicker.year}-${binding.datePicker.month + 1}-${binding.datePicker.dayOfMonth}"
+            val purpose = binding.purposeEditText.text.toString()
+
+            if (studentName.isNotEmpty() && studentId.isNotEmpty() &&
+                requestType.isNotEmpty() && time.isNotEmpty() &&
+                date.isNotEmpty() && purpose.isNotEmpty()
+            ) {
+                val accessibility = Accessibility(
+                    id = 0, // Auto-generated ID
+                    studentName = studentName,
+                    studentId = studentId,
+                    requestType = requestType,
+                    time = time,
+                    date = date,
+                    purpose = purpose
+                )
+
+                // Save the Accessibility to the Room Database
+                saveAccessibility(accessibility)
             }
+        }
+    }
+
+    private fun saveAccessibility(accessibility: Accessibility) {
+        GlobalScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                // Get the Room Database instance
+                val database = AppDatabase.getDatabase(requireContext())
+
+                // Insert the Accessibility into the database
+                database.accessibilityDao().insertAccessibility(accessibility)
+            }
+
+            // Clear the input fields after saving
+            clearInputFields()
+        }
+    }
+
+    private fun clearInputFields() {
+        binding.studentNameEditText.text.clear()
+        binding.studentIdEditText.text.clear()
+        binding.requestTypeSpinner.setSelection(0)
+        binding.purposeEditText.text.clear()
+
+        // Set default values for time and date
+        binding.timePicker.hour = 0
+        binding.timePicker.minute = 0
+
+        val calendar = Calendar.getInstance()
+        binding.datePicker.updateDate(
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
