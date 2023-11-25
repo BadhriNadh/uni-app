@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.roomdb.Fragments.HelpFrags.AccessibilityFragment
 import com.example.roomdb.Fragments.HelpFrags.EmergencyFragment
+import com.example.roomdb.Fragments.HelpFrags.HistoryFragment
 import com.example.roomdb.Fragments.HelpFrags.IncidentReportFragment
 import com.example.roomdb.R
 import com.google.android.material.tabs.TabLayout
@@ -53,6 +54,16 @@ class HelpFragment : Fragment() {
         val simpleFrameLayout: FrameLayout = view.findViewById(R.id.simpleFrameLayout)
         val tabLayout: TabLayout = view.findViewById(R.id.simpleTabLayout)
 
+        val fragment: Fragment? =  EmergencyFragment()
+            fragment?.let {
+                val fm = (activity as FragmentActivity).supportFragmentManager
+                val ft: FragmentTransaction = fm.beginTransaction()
+                ft.replace(R.id.simpleFrameLayout, it)
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                ft.commit()
+            }
+
+
         // Create a new Tab named "First"
         val emergencyTab = tabLayout.newTab()
         emergencyTab.text = "Emergency" // set the Text for the first Tab
@@ -72,6 +83,12 @@ class HelpFragment : Fragment() {
         accessibilityTab.setIcon(R.drawable.accessibility_icon_24) // set an icon for the first tab
         tabLayout.addTab(accessibilityTab) // add the tab at in the TabLayout
 
+        // Create a new Tab named "Fourth"
+        val historyTab = tabLayout.newTab()
+        historyTab.text = "History" // set the Text for the first Tab
+        historyTab.setIcon(R.drawable.icon_history_24) // set an icon for the first tab
+        tabLayout.addTab(historyTab) // add the tab at in the TabLayout
+
         // perform setOnTabSelectedListener event on TabLayout
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
@@ -80,6 +97,7 @@ class HelpFragment : Fragment() {
                     0 -> EmergencyFragment()
                     1 -> IncidentReportFragment()
                     2 -> AccessibilityFragment()
+                    3 -> HistoryFragment()
                     else -> null
                 }
 
