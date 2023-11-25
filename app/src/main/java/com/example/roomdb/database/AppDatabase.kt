@@ -8,7 +8,7 @@ import com.example.roomdb.entities.Accessibility
 import com.example.roomdb.entities.IncidentReport
 import com.example.roomdb.entities.TodoItem
 
-@Database(entities = [TodoItem::class, IncidentReport::class, Accessibility::class], version = 2)
+@Database(entities = [TodoItem::class, IncidentReport::class, Accessibility::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun todoItemDao(): TodoItemDao
@@ -31,7 +31,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "app_database"
                 )
-                    .fallbackToDestructiveMigration()
+//                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 return instance
