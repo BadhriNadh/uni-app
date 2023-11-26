@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.roomdb.R
 import com.example.roomdb.database.AppDatabase
@@ -55,13 +54,6 @@ class IncidentReportFragment : Fragment() {
 
                 // Save the Incident Report to the Room Database
                 saveIncidentReport(incidentReport)
-
-                Toast.makeText(
-                    this.context,
-                    "Report Submission is successful" ,
-                    Toast.LENGTH_LONG
-                )
-                    .show()
             }
         }
     }
