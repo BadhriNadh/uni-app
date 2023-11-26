@@ -48,16 +48,11 @@ class EmergencyFragment : Fragment() {
         emergencyContactsAdapter = EmergencyContactsAdapter()
 
         // For example, you can dynamically add emergency contacts to the adapter
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 1", "123456789"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 2", "987654321"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 3", "987654321"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 4", "987654321"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 5", "987654321"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 6", "987654321"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 7", "987654321"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 8", "987654321"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 9", "987654321"))
-        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("Emergency Contact 10", "987654321"))
+        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("CAMPUS SECURITY", "987654321"))
+        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("REGIONAL POLICE", "987654321"))
+        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("AMBULANCE SERVICE", "987654321"))
+        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("FIRE SERVICE", "987654321"))
+        emergencyContactsAdapter.addEmergencyContact(EmergencyContact("HEALTH SERVICE", "987654321"))
 
         emergencyContactsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         emergencyContactsRecyclerView.adapter = emergencyContactsAdapter

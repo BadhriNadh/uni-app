@@ -28,7 +28,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:hint="Student Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:background="@color/lightGray"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="8dp"/>
 
         <!-- Student ID -->
         <EditText
@@ -37,7 +42,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:hint="Student ID"
-            android:inputType="text" />
+            android:inputType="text"
+            android:background="@color/lightGray"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="8dp"/>
 
         <!-- Request Type Label -->
         <TextView
@@ -92,7 +102,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:hint="Purpose"
-            android:inputType="text" />
+            android:inputType="text"
+            android:background="@color/lightGray"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="8dp"/>
 
         <!-- Submit Button -->
         <Button
