@@ -23,6 +23,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+         <activity
+            android:name=".AccountActivity"
+            android:exported="false" />
+        <!-- Declare NotificationDetailActivity -->
+        <activity
+            android:name=".NotificationDetailActivity"
+            android:exported="true" /> <!-- Set exported to true if this is to be accessible from outside the app -->
+        <!-- Declare NotificationActivity -->
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="editTextFirstName" type="id" />
+    <item name="editTextLastName" type="id" />
+    <item name="editTextCellPhone" type="id" />
+    <item name="textViewStudentNumber" type="id" />
+    <item name="editTextStreamOfStudy" type="id" />
+    <item name="buttonUpdate" type="id" />
+</resources>
