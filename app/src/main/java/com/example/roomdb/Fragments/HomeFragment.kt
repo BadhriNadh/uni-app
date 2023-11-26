@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.roomdb.R
@@ -16,19 +15,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Response
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 
 
 import com.example.roomdb.WeatherResponse
 import com.example.roomdb.database.AppDatabase
 import com.example.roomdb.entities.WeatherData
-import com.squareup.picasso.Picasso
 
 class HomeFragment : Fragment() {
 
-    private lateinit var weatherText: TextView
+    private lateinit var weatherCity: TextView
+    private lateinit var weatherTemperature: TextView
+    private lateinit var weatherDescription: TextView
     private lateinit var weatherIcon: ImageView
     private lateinit var database: AppDatabase
 
@@ -37,7 +34,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        weatherText = view.findViewById(R.id.weatherText)
+        weatherCity = view.findViewById(R.id.weatherCity)
+        weatherTemperature=view.findViewById(R.id.weatherTemperature)
+        weatherDescription= view.findViewById(R.id.weatherDescription)
         weatherIcon = view.findViewById(R.id.weatherIcon)
 
         // Initialize Room database
@@ -92,7 +91,9 @@ class HomeFragment : Fragment() {
             kelvinToCelsius(weatherResponse.main.temp),
             "https://openweathermap.org/img/wn/${weatherResponse.weather[0].icon}@2x.png"
         )
-
+        GlobalScope.launch(Dispatchers.IO) {
+            database.weatherDataDao().deleteWeatherData(weatherResponse.name)
+        }
         // Insert or update the weather data in the Room database
         GlobalScope.launch(Dispatchers.IO) {
             database.weatherDataDao().insertOrUpdate(weatherData)
@@ -110,7 +111,7 @@ class HomeFragment : Fragment() {
                     displayWeatherDataFromDb(weatherData)
                 } else {
                     // No weather data available in the database
-                    weatherText.text = "No weather data available"
+                    weatherCity.text = "\uD83D\uDCCD"+"Halifax"
                 }
             }
         }
@@ -120,9 +121,15 @@ class HomeFragment : Fragment() {
         if (weatherResponse != null && weatherResponse.weather.isNotEmpty()) {
             val weather = weatherResponse.weather[0] // Assuming you are interested in the first weather condition
             val temperatureInCelsius = kelvinToCelsius(weatherResponse.main.temp).toInt()
-            val weatherInfo =
-                "City: ${weatherResponse.name}\nDescription: ${weather.description}\nTemperature: $temperatureInCelsius°C"
-            weatherText.text = weatherInfo
+
+            // Display weather city in weatherCity TextView
+            weatherCity.text = "\uD83D\uDCCD"+weatherResponse.name
+
+            // Display weather description in weatherDescription TextView
+            weatherDescription.text = weather.description
+
+            // Display temperature in weatherTemperature TextView
+            weatherTemperature.text = "$temperatureInCelsius°C"
 
             // Load and display the weather icon using Glide
             val iconCode = weather.icon
@@ -131,22 +138,31 @@ class HomeFragment : Fragment() {
                 .load(iconUrl)
                 .into(weatherIcon)
         } else {
-            weatherText.text = "No weather data available"
+            // Handle the case when there is no weather data
+            weatherCity.text = "No weather data available"
+            weatherDescription.text = ""
+            weatherTemperature.text = ""
         }
     }
 
-
     private fun displayWeatherDataFromDb(weatherData: WeatherData) {
         val temperatureInCelsius = weatherData.temperature.toInt()
-        val weatherInfo =
-            "City: ${weatherData.city}\nDescription: ${weatherData.description}\nTemperature: $temperatureInCelsius°C"
-        weatherText.text = weatherInfo
+
+        // Display weather city in weatherCity TextView
+        weatherCity.text = "\uD83D\uDCCD"+"${weatherData.city}"
+
+        // Display weather description in weatherDescription TextView
+        weatherDescription.text = "${weatherData.description}"
+
+        // Display temperature in weatherTemperature TextView
+        weatherTemperature.text = "$temperatureInCelsius°C"
 
         // Load and display the weather icon using Glide
         Glide.with(requireContext())
             .load(weatherData.iconUrl)
             .into(weatherIcon)
     }
+
 
     private fun kelvinToCelsius(kelvin: Double): Double {
         return kelvin - 273.15

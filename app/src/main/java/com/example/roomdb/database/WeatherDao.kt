@@ -13,4 +13,8 @@ interface WeatherDataDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrUpdate(weatherData: WeatherData)
+
+    @Query("DELETE FROM WeatherData WHERE city = :cityName")
+    suspend fun deleteWeatherData(cityName: String)
+
 }
