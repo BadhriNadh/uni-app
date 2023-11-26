@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.map_icon -> {
-                    loadFragment(MapFragment())
+                    loadFragment(RoutesFragment())
                     true
                 }
                 R.id.help_icon -> {
