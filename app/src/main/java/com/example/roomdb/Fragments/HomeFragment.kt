@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.roomdb.News
+import com.example.roomdb.NewsAdaptor
 import com.example.roomdb.R
 import com.example.roomdb.WeatherRetrofitClient
 import kotlinx.coroutines.Dispatchers
@@ -29,11 +33,34 @@ class HomeFragment : Fragment() {
     private lateinit var weatherIcon: ImageView
     private lateinit var database: AppDatabase
 
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var newsList: ArrayList<News>
+    private lateinit var newsAdaptor: NewsAdaptor
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        recyclerView= view.findViewById(R.id.recyclerView)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+
+        newsList=ArrayList()
+
+        newsList.add(News(R.drawable.golden,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
+        newsList.add(News(R.drawable.thinair,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
+        newsList.add(News(R.drawable.holiday,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
+        newsList.add(News(R.drawable.killamsch,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
+        newsList.add(News(R.drawable.housing,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
+        newsList.add(News(R.drawable.futures,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
+
+        newsAdaptor=NewsAdaptor(newsList)
+        recyclerView.adapter=newsAdaptor
+
         weatherCity = view.findViewById(R.id.weatherCity)
         weatherTemperature=view.findViewById(R.id.weatherTemperature)
         weatherDescription= view.findViewById(R.id.weatherDescription)
