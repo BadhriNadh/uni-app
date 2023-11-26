@@ -30,25 +30,25 @@ import android.widget.LinearLayout
 //worksss
 class ResourcesFragment : Fragment() {
 
-    private lateinit var webView: WebView
+    lateinit var webView: WebView
     private lateinit var linkRecyclerView: RecyclerView
     private lateinit var adapter: LinkAdapter
     private lateinit var closeButton: ImageView
     private val imageResources = listOf(
-        R.drawable.resscroll1,
         R.drawable.resscroll2,
+        R.drawable.resscroll1,
         // Add more image resources as needed
     )
     private val links = listOf(
         Link("Academics", "https://www.dal.ca/academics.html",R.drawable.academics),
         Link("Campus Life", "https://www.dal.ca/campus_life.html",R.drawable.resource),
         Link("Research & Innovation", "https://www.dal.ca/research.html",R.drawable.image1),
-        Link("Campus Life", "https://www.dal.ca/campus_life.html",R.drawable.image),
-        Link("Research & Innovation", "https://www.dal.ca/research.html",R.drawable.saveus)
+        Link("Libraries", "https://libraries.dal.ca/",R.drawable.image),
+        Link("Dal News", "https://www.dal.ca/news.html",R.drawable.saveus)
         // Add more links and their URLs as needed
     )
 
-    private var isShowingLinks = true
+    var isShowingLinks = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
