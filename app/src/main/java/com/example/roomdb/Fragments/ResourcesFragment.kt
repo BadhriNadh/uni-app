@@ -35,16 +35,16 @@ class ResourcesFragment : Fragment() {
     private lateinit var adapter: LinkAdapter
     private lateinit var closeButton: ImageView
     private val imageResources = listOf(
-        R.drawable.campuslife,
-        R.drawable.service,
+        R.drawable.resscroll1,
+        R.drawable.resscroll2,
         // Add more image resources as needed
     )
     private val links = listOf(
         Link("Academics", "https://www.dal.ca/academics.html",R.drawable.academics),
         Link("Campus Life", "https://www.dal.ca/campus_life.html",R.drawable.resource),
-        Link("Research & Innovation", "https://www.dal.ca/research.html",R.drawable.academics),
-        Link("Campus Life", "https://www.dal.ca/campus_life.html",R.drawable.resource),
-        Link("Research & Innovation", "https://www.dal.ca/research.html",R.drawable.academics)
+        Link("Research & Innovation", "https://www.dal.ca/research.html",R.drawable.image1),
+        Link("Campus Life", "https://www.dal.ca/campus_life.html",R.drawable.image),
+        Link("Research & Innovation", "https://www.dal.ca/research.html",R.drawable.saveus)
         // Add more links and their URLs as needed
     )
 

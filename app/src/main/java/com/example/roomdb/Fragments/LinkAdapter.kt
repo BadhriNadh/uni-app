@@ -22,7 +22,7 @@ class LinkAdapter(private val links: List<Link>, private val onLinkClickListener
                 Glide.with(itemView)
                     .load(link.image as Int)
                     .placeholder(R.drawable.askus)
-                    .error(R.drawable.library)
+                    .error(R.drawable.image)
                     .into(linkImage)
             } else  {
                 Glide.with(itemView)
