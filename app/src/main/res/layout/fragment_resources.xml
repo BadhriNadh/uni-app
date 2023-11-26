@@ -18,7 +18,7 @@
 
     <LinearLayout
         android:id="@+id/imageLinearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
@@ -35,18 +35,18 @@
         <ImageView
             android:id="@+id/image2"
             android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/resscroll2"
-        android:scaleType="centerCrop"
-        android:layout_marginEnd="8dp" />
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/resscroll2" />
 
         <ImageView
             android:id="@+id/image3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/resscroll3"
+            android:layout_marginEnd="8dp"
             android:scaleType="centerCrop"
-            android:layout_marginEnd="8dp" />
+            android:src="@drawable/resscroll3" />
 
         <!-- Add more ImageViews for more images -->
 
