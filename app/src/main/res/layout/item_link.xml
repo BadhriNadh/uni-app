@@ -1,0 +1,91 @@
+
+    <!-- item_link.xml -->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/beak_gold"
+        android:layout_margin="4dp"
+        android:backgroundTint="@color/beak_gold"
+        android:backgroundTintMode="multiply" >
+
+        <ImageView
+            android:id="@+id/linkImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/library"
+        android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/linkTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/linkImage"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
+
+
+<!--&lt;!&ndash; item_link.xml &ndash;&gt;  works-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:padding="8dp"-->
+<!--    android:background="@color/beak_gold"-->
+<!--    android:layout_margin="4dp"-->
+<!--    android:backgroundTint="@color/beak_gold"-->
+<!--    android:backgroundTintMode="multiply" >-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/linkImage"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:src="@drawable/library"-->
+<!--    android:scaleType="centerCrop" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/linkTitle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_toEndOf="@id/linkImage"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@android:color/black" />-->
+
+<!--</RelativeLayout>-->
+
+
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical">-->
+<!--    &lt;!&ndash; item_link.xml &ndash;&gt;-->
+<!--    <TextView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:id="@+id/titleTextView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="16dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@android:color/black" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/linkTextView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="12dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="16sp"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:background="?android:attr/selectableItemBackground" />-->
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/purple_500" /> &lt;!&ndash; Separator line &ndash;&gt;-->
+<!--</LinearLayout>-->
