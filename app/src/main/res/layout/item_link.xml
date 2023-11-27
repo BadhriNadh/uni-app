@@ -4,9 +4,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:background="@color/beak_gold"
+        android:background="@color/light_beak_gold"
         android:layout_margin="4dp"
-        android:backgroundTint="@color/beak_gold"
+        android:backgroundTint="@color/light_beak_gold"
         android:backgroundTintMode="multiply" >
 
         <ImageView
@@ -24,7 +24,8 @@
             android:layout_marginStart="16dp"
             android:layout_toEndOf="@id/linkImage"
             android:textSize="18sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
 
     </RelativeLayout>
 

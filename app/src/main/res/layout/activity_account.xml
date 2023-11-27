@@ -17,7 +17,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="First Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:background="@color/lightGray"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp"/>
 
     <!-- User's First Name -->
     <EditText
@@ -32,7 +37,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Last Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:background="@color/lightGray"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="8dp"/>
 
     <!-- User's Last Name -->
     <EditText
@@ -47,7 +58,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cell Phone Number"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:background="@color/lightGray"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="8dp"/>
 
     <!-- User's Cell Phone Number -->
     <EditText
@@ -63,7 +80,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Student Number"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:background="@color/lightGray"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="8dp"/>
 
     <!-- User's Student Number (Non-editable) -->
     <TextView
@@ -78,7 +101,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Stream of Study"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:background="@color/lightGray"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="8dp"/>
 
     <!-- User's Stream of Study -->
     <EditText
