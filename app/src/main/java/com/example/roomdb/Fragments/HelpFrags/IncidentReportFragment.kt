@@ -25,7 +25,7 @@ class IncidentReportFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentIncidentReportFormBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,7 +45,7 @@ class IncidentReportFragment : Fragment() {
                 incidentDescription.isNotEmpty()
             ) {
                 val incidentReport = IncidentReport(
-                    id = 0, // Auto-generated ID
+                    id = 0,
                     studentName = studentName,
                     incidentTime = incidentTime,
                     incidentDate = incidentDate,
@@ -53,7 +53,7 @@ class IncidentReportFragment : Fragment() {
                     incidentDescription = incidentDescription
                 )
 
-                // Save the Incident Report to the Room Database
+
                 saveIncidentReport(incidentReport)
 
                 Toast.makeText(
@@ -69,14 +69,14 @@ class IncidentReportFragment : Fragment() {
     private fun saveIncidentReport(incidentReport: IncidentReport) {
         GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
-                // Get the Room Database instance
+
                 val database = AppDatabase.getDatabase(requireContext())
 
-                // Insert the Incident Report into the database
+
                 database.incidentReportDao().insertIncidentReport(incidentReport)
             }
 
-            // Clear the input fields after saving
+
             clearInputFields()
         }
     }
@@ -86,7 +86,7 @@ class IncidentReportFragment : Fragment() {
         binding.incidentLocationEditText.text.clear()
         binding.incidentDescriptionEditText.text.clear()
 
-        // Set default values for incidentTime and incidentDate
+
         binding.incidentTimePicker.hour = 0
         binding.incidentTimePicker.minute = 0
 

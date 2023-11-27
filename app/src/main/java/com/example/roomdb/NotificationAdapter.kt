@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 class NotificationAdapter(private val notificationList: MutableList<NotificationItem>) :
     RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
 
-    // Define an interface for item click listener
+
     interface OnNotificationClickListener {
         fun onNotificationClicked(position: Int)
     }
@@ -23,17 +23,17 @@ class NotificationAdapter(private val notificationList: MutableList<Notification
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var titleView: TextView = itemView.findViewById(R.id.notification_title)
-        private var layout: LinearLayout = itemView.findViewById(R.id.notification_layout) // Reference to the layout
+        private var layout: LinearLayout = itemView.findViewById(R.id.notification_layout)
 
         fun bind(notificationItem: NotificationItem, clickListener: OnNotificationClickListener?) {
             titleView.text = notificationItem.message
 
-            // Change the appearance based on read status
+
             if (notificationItem.isRead) {
-                layout.setBackgroundColor(Color.WHITE) // Use white for read notifications
+                layout.setBackgroundColor(Color.WHITE)
                 titleView.setTextColor(Color.GRAY)
             } else {
-                layout.setBackgroundColor(Color.LTGRAY) // Use a distinct color for unread notifications
+                layout.setBackgroundColor(Color.LTGRAY)
                 titleView.setTextColor(Color.BLACK)
             }
 
@@ -56,14 +56,14 @@ class NotificationAdapter(private val notificationList: MutableList<Notification
         val notification = notificationList[position]
         holder.bind(notification, notificationClickListener)
         holder.titleView.text = notification.message
-        // Set the click listener
+
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, NotificationDetailActivity::class.java).apply {
                 putExtra(NotificationDetailActivity.EXTRA_MESSAGE, notification.message)
             }
             context.startActivity(intent)
-            // Mark as read and update the list
+
             notification.isRead = true
             notifyItemChanged(position)
         }

@@ -1,92 +1,90 @@
 # group11-mobile-computing
 
 
+# MyCampus - Empowering Student Safety and Convenience
 
-## Getting started
+## Project Description
+**MyCampus** is a mobile application designed to serve as an all-encompassing platform for university students. It offers a range of functionalities aimed at enhancing safety and providing essential utilities within and around the campus. This application, built using Kotlin for Android, outlines the detailed functionalities of the app, along with corresponding use cases.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Contributors
+- **Pratik Mukund Parmar**  
+  BannerID: B00934515  
+  Email: [pratikparmar@dal.ca](mailto:pratikparmar@dal.ca)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- **Badhri Arja**  
+  BannerID: B00930493  
+  Email: [bd861158@dal.ca](mailto:bd861158@dal.ca)
 
-## Add your files
+- **Naveen Kunapaneni**  
+  BannerID: B00930132  
+  Email: [nv676973@dal.ca](mailto:nv676973@dal.ca)
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+- **Lokeshwar Kumar Tabjula**  
+  BannerID: B00936909  
+  Email: [lokeshwartabjula@dal.ca](mailto:lokeshwartabjula@dal.ca)
 
-```
-cd existing_repo
-git remote add origin https://git.cs.dal.ca/tabjula/group11-mobile-computing.git
-git branch -M main
-git push -uf origin main
-```
+- **Kovarthanan Murugan**  
+  BannerID: B00936880  
+  Email: [kovarthanan.murugan@dal.ca](mailto:kovarthanan.murugan@dal.ca)
 
-## Integrate with your tools
+- **Kishoreganesh Sundararajan**  
+  BannerID: B00934548  
+  Email: [kishoreganesh@dal.ca](mailto:kishoreganesh@dal.ca)
 
-- [ ] [Set up project integrations](https://git.cs.dal.ca/tabjula/group11-mobile-computing/-/settings/integrations)
+- **Emayan Vadivel**  
+  BannerID: B00934556  
+  Email: [em241005@dal.ca](mailto:em241005@dal.ca)
 
-## Collaborate with your team
+## Features
+- **Emergency Contacts**: Quickly access important contacts in case of an emergency.
+- **Panic Button**: Instantly send distress signals for immediate assistance.
+- **Location Sharing**: Share your real-time location with friends or campus security.
+- **Incident Reporting**: Report incidents and contribute to campus safety.
+- **Accessibility Request**: Request for safety arrangments and contribute to campus safety.
+- **History of Requests**: View history of your submissions.
+- **Safe Routes**: Find the safest routes to your destination on campus.
+- **Campus Maps**: Explore detailed maps of the university campus.
+- **Notification Systems**: Receive important alerts and updates.
+- **Account Management Systems**: Manage and edit your account details.
+- **Student Resources**: Find important resources for students.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
-## Test and Deploy
 
-Use the built-in continuous integration in GitLab.
+## Technology Stack
+- **Language**: Kotlin
+- **Framework**: Android SDK
+- **Database**: RoomDB
+- **API Integration**: Third-party APIs for weather alerts and transportation information using Retrofit.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Testing
+Our project undergoes rigorous testing to ensure reliability and security. We employ both unit testing and user acceptance testing to validate the functionality and usability of MyCampus.
 
-***
+## Installation and Running the Application
+To install and run the MyCampus application, follow these steps:
 
-# Editing this README
+ **Clone the Repository**:  
+   Clone the MyCampus repository from [Dalhousie University's GitLab](https://git.cs.dal.ca/tabjula/group11-mobile-computing).
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+   ```bash
+   git clone https://git.cs.dal.ca/tabjula/group11-mobile-computing
+   ```
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Open the Project in Android Studio
+- Open Android Studio and select 'Open an existing project'. 
+- Navigate to the directory where you cloned the repository and open it.
 
-## Name
-Choose a self-explaining name for your project.
+## Install Required Dependencies
+- Android Studio will automatically attempt to download and install any required dependencies. 
+- Ensure that you are connected to the internet.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## Run the Application
+- After the project has been successfully synchronized, you can run the application by clicking on the 'Run' button in Android Studio. 
+- Make sure you have an Android emulator set up or a physical device connected.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Reporting Issues
+- If you encounter any issues or bugs while using the application, please report them by creating an issue in the repository or by contacting one of the contributors.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+ 
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
