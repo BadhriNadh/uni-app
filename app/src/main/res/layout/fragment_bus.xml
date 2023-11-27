@@ -31,7 +31,7 @@
             android:id="@+id/nextTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="next in 10 min and every 30 min"
+            android:text="@string/busses_frequency"
             android:textSize="18sp"
             android:textStyle="normal" />
 
