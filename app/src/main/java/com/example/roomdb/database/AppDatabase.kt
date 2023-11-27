@@ -5,8 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.roomdb.entities.*
+import com.example.roomdb.entities.Accessibility
+import com.example.roomdb.entities.IncidentReport
+import com.example.roomdb.entities.Timing
+import com.example.roomdb.entities.TodoItem
+import com.example.roomdb.entities.WeatherData
 
-@Database(entities = [TodoItem::class, IncidentReport::class, Accessibility::class, WeatherData::class, User::class], version = 1)
+@Database(entities = [TodoItem::class, IncidentReport::class, Accessibility::class, WeatherData::class,User::class, Timing::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun todoItemDao(): TodoItemDao
@@ -14,6 +19,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun accessibilityDao(): AccessibilityDao
     abstract fun weatherDataDao(): WeatherDataDao
     abstract fun userDao(): UserDao
+    abstract fun timingDao(): TimingDao
 
     companion object {
         @Volatile
