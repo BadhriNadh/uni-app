@@ -12,7 +12,6 @@
         android:id="@+id/numberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" 10"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -32,7 +31,7 @@
             android:id="@+id/nextTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="next in 10 min and every  30 min"
+            android:text="next in 10 min and every 30 min"
             android:textSize="18sp"
             android:textStyle="normal" />
 

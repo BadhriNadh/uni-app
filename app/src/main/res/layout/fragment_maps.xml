@@ -19,7 +19,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:src="@drawable/baseline_share_location_24"
-        android:contentDescription="Share Button" />
+        android:contentDescription="Share Button"
+        android:background="#242424" />
 
 
 </FrameLayout>
