@@ -6,6 +6,9 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.roomdb.database.AppDatabase
+import com.example.roomdb.database.UserDao
+import com.example.roomdb.entities.User
 import kotlinx.coroutines.launch
 
 class AccountActivity : AppCompatActivity() {

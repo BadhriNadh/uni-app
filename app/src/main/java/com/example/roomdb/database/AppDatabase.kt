@@ -4,10 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.roomdb.entities.Accessibility
-import com.example.roomdb.entities.IncidentReport
-import com.example.roomdb.entities.TodoItem
-import com.example.roomdb.entities.WeatherData
+import com.example.roomdb.entities.*
 
 @Database(entities = [TodoItem::class, IncidentReport::class, Accessibility::class, WeatherData::class, User::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
