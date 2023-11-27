@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/baseline_account_box_24"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp" />
+
+    <!-- Label for First Name -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <!-- User's First Name -->
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter first name"
+        android:minHeight="48dp" />
+
+    <!-- Label for Last Name -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <!-- User's Last Name -->
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter last name"
+        android:minHeight="48dp" />
+
+    <!-- Label for Cell Phone Number -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cell Phone Number"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <!-- User's Cell Phone Number -->
+    <EditText
+        android:id="@+id/editTextCellPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter cell phone number"
+        android:inputType="phone"
+        android:minHeight="48dp" />
+
+    <!-- Label for Student Number -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student Number"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <!-- User's Student Number (Non-editable) -->
+    <TextView
+        android:id="@+id/textViewStudentNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:hint="Student number will be shown here" />
+
+    <!-- Label for Stream of Study -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stream of Study"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <!-- User's Stream of Study -->
+    <EditText
+        android:id="@+id/editTextStreamOfStudy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter stream of study"
+        android:minHeight="48dp" />
+
+    <!-- Update Button -->
+    <Button
+        android:id="@+id/buttonUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"/>
+</LinearLayout>

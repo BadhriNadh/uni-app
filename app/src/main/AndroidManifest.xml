@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -12,6 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomDB"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA3TPCOio_OJiJ3FQcIbX1Y7eo3y3UZJek" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,6 +29,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+         <activity
+            android:name=".AccountActivity"
+            android:exported="false" />
+        <!-- Declare NotificationDetailActivity -->
+        <activity
+            android:name=".NotificationDetailActivity"
+            android:exported="true" /> <!-- Set exported to true if this is to be accessible from outside the app -->
+        <!-- Declare NotificationActivity -->
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

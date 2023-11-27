@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <!-- Horizontal ScrollView for Images -->
+    <HorizontalScrollView
+        android:id="@+id/imageHorizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="8dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp">
+
+    <LinearLayout
+        android:id="@+id/imageLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- ImageViews for displaying images horizontally -->
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/resscroll1" />
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/resscroll2" />
+
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/resscroll3" />
+
+        <!-- Add more ImageViews for more images -->
+
+    </LinearLayout>
+</HorizontalScrollView>
+
+    <!-- Existing RecyclerView for links -->
+<androidx.recyclerview.widget.RecyclerView
+android:id="@+id/linkRecyclerView"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_below="@id/imageHorizontalScrollView"
+android:visibility="visible"
+    android:layout_marginTop="30dp"
+android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/resourcesTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="1dp"
+        android:padding="8dp"
+        android:text="Resources"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+    <!-- Existing WebView -->
+<WebView
+android:id="@+id/webView"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:visibility="gone" />
+
+    <!-- Existing Close Button (Keep it hidden initially) -->
+<ImageView
+android:id="@+id/closeButton"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+android:src="@drawable/close"
+android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+android:contentDescription="@string/close_button"
+android:visibility="gone" />
+
+    </RelativeLayout>
+
+<!--works-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/linkRecyclerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:visibility="visible"-->
+<!--        android:background="@android:color/white" />-->
+
+<!--    <WebView-->
+<!--        android:id="@+id/webView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:visibility="gone" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/closeButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:src="@drawable/ic_close"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:contentDescription="@string/close_button"-->
+<!--        android:visibility="gone" />-->
+
+<!--</RelativeLayout>-->
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <ListView-->
+<!--        android:id="@+id/linkListView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:divider="@android:color/darker_gray"-->
+<!--        android:dividerHeight="1dp"-->
+<!--        android:background="@android:color/white" />-->
+
+<!--    <WebView-->
+<!--        android:id="@+id/webView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        android:visibility="visible" />-->
+
+<!--</LinearLayout>-->
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--    <WebView-->
+<!--        android:id="@+id/webView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
+<!--</RelativeLayout>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recyclerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="8dp" />-->
+
+<!--    <WebView-->
+<!--        android:id="@+id/webView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:visibility="gone" />-->
+
+<!--</LinearLayout>-->
+
+
