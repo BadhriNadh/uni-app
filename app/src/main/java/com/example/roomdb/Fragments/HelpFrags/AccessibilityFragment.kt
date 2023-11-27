@@ -20,7 +20,6 @@ import java.util.Calendar
 
 class AccessibilityFragment : Fragment() {
 
-    // Add an array of request types
     private val requestTypes = arrayOf("Exam Accomodation", "Laptop Loans", "Writing Assistant", "Teaching Assistant", "Grocery")
     private var _binding: FragmentAccessibilityFormBinding? = null
     private val binding get() = _binding!!
@@ -29,7 +28,7 @@ class AccessibilityFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentAccessibilityFormBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -37,11 +36,11 @@ class AccessibilityFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initialize the ArrayAdapter with the array of request types
+
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, requestTypes)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        // Set the adapter to the Spinner
+
         binding.requestTypeSpinner.adapter = adapter
 
         binding.submitButton.setOnClickListener {
@@ -57,7 +56,7 @@ class AccessibilityFragment : Fragment() {
                 date.isNotEmpty() && purpose.isNotEmpty()
             ) {
                 val accessibility = Accessibility(
-                    id = 0, // Auto-generated ID
+                    id = 0,
                     studentName = studentName,
                     studentId = studentId,
                     requestType = requestType,
@@ -66,7 +65,7 @@ class AccessibilityFragment : Fragment() {
                     purpose = purpose
                 )
 
-                // Save the Accessibility to the Room Database
+
                 saveAccessibility(accessibility)
 
                 Toast.makeText(
@@ -82,14 +81,14 @@ class AccessibilityFragment : Fragment() {
     private fun saveAccessibility(accessibility: Accessibility) {
         GlobalScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
-                // Get the Room Database instance
+
                 val database = AppDatabase.getDatabase(requireContext())
 
-                // Insert the Accessibility into the database
+
                 database.accessibilityDao().insertAccessibility(accessibility)
             }
 
-            // Clear the input fields after saving
+
             clearInputFields()
         }
     }
@@ -100,7 +99,7 @@ class AccessibilityFragment : Fragment() {
         binding.requestTypeSpinner.setSelection(0)
         binding.purposeEditText.text.clear()
 
-        // Set default values for time and date
+
         binding.timePicker.hour = 0
         binding.timePicker.minute = 0
 
