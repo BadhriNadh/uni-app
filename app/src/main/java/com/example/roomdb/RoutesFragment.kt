@@ -68,7 +68,7 @@ class RoutesFragment : Fragment() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
 
-        // Default fragment when "RoutesFragment" is opened
+
         val defaultFragment = MapsFragment()
         val fm = (activity as FragmentActivity).supportFragmentManager
         val ft: FragmentTransaction = fm.beginTransaction()
