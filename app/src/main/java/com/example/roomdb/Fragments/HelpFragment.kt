@@ -79,7 +79,7 @@ class HelpFragment : Fragment() {
 
         // Create a new Tab named "Third"
         val accessibilityTab = tabLayout.newTab()
-        accessibilityTab.text = "request" // set the Text for the first Tab
+        accessibilityTab.text = "Request" // set the Text for the first Tab
         accessibilityTab.setIcon(R.drawable.accessibility_icon_24) // set an icon for the first tab
         tabLayout.addTab(accessibilityTab) // add the tab at in the TabLayout
 
