@@ -1,5 +1,6 @@
 package com.example.roomdb.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,21 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.roomdb.News
-import com.example.roomdb.NewsAdaptor
-import com.example.roomdb.R
-import com.example.roomdb.WeatherRetrofitClient
+import com.example.roomdb.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-import com.example.roomdb.WeatherResponse
 import com.example.roomdb.database.AppDatabase
 import com.example.roomdb.entities.WeatherData
 
@@ -44,6 +42,23 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+//        val toolbar: Toolbar = view.findViewById(R.id.toolbar)
+//        setSupportActionBar(toolbar)
+//        supportActionBar?.setDisplayShowTitleEnabled(false)
+        val notificationIcon = view.findViewById<ImageView>(R.id.notification_icon)
+        notificationIcon.setOnClickListener {
+            val intent = Intent(requireActivity(), NotificationActivity::class.java)
+            startActivity(intent)
+        }
+
+        val accountIcon = view.findViewById<ImageView>(R.id.account_icon)
+        accountIcon.setOnClickListener {
+            val intent = Intent(requireActivity(), AccountActivity::class.java)
+            startActivity(intent)
+        }
+
+        updateNotificationCount()
+
         recyclerView= view.findViewById(R.id.recyclerView)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -52,11 +67,11 @@ class HomeFragment : Fragment() {
         newsList=ArrayList()
 
         newsList.add(News(R.drawable.golden,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
-        newsList.add(News(R.drawable.thinair,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
-        newsList.add(News(R.drawable.holiday,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
-        newsList.add(News(R.drawable.killamsch,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
-        newsList.add(News(R.drawable.housing,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
-        newsList.add(News(R.drawable.futures,"Diana’s golden ticket: Dal’s newest Rhodes Scholar is Oxford‑bound on a life‑changing opportunity"))
+        newsList.add(News(R.drawable.thinair,"Out of thin air. Dal PhD student wins global research competition"))
+        newsList.add(News(R.drawable.holiday," In the spirit of the holidays – a collection of drives and fundraisers at Dal"))
+        newsList.add(News(R.drawable.killamsch,"Dal's Killam scholars exemplify where possibility meets impact. New Killam scholars, existing research chairs celebrated at event"))
+        newsList.add(News(R.drawable.housing,"The quest for affordable housing: Dal planning prof on the need for new approaches"))
+        newsList.add(News(R.drawable.futures,"Expert report imagines possible futures for this ecologically rich slice of Nova Scotia"))
 
         newsAdaptor=NewsAdaptor(newsList)
         recyclerView.adapter=newsAdaptor
@@ -194,4 +209,26 @@ class HomeFragment : Fragment() {
     private fun kelvinToCelsius(kelvin: Double): Double {
         return kelvin - 273.15
     }
+    override fun onResume() {
+        super.onResume()
+        updateNotificationCount() // Update count when returning to this fragment
+    }
+
+    private fun updateNotificationCount() {
+        val unreadCount = updateNotificationsCount()
+        view?.findViewById<TextView>(R.id.notification_count)?.text = unreadCount.toString()
+    }
+
+    companion object {
+        var notifications = mutableListOf(
+            NotificationItem("Notification 3: Campus will be closed tomorrow due to weather conditions.", false),
+            NotificationItem("Notification 2: Your class schedule has been updated.", false),
+            NotificationItem("Notification 1: Welcome to MyCampus!", false)
+        )
+
+        fun updateNotificationsCount(): Int {
+            return notifications.count { !it.isRead }
+        }
+    }
 }
+
