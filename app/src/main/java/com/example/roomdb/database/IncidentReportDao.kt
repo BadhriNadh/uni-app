@@ -4,16 +4,16 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.roomdb.entities.IncidentReport // Change import
+import com.example.roomdb.entities.IncidentReport
 
 @Dao
 interface IncidentReportDao {
-    @Query("SELECT * FROM IncidentReport") // Change table name
-    suspend fun getAllIncidentReports(): List<IncidentReport> // Change return type
+    @Query("SELECT * FROM IncidentReport")
+    suspend fun getAllIncidentReports(): List<IncidentReport>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertIncidentReport(incidentReport: IncidentReport) // Change parameter type
+    suspend fun insertIncidentReport(incidentReport: IncidentReport)
 
-    @Query("DELETE FROM IncidentReport") // Change table name
-    suspend fun clearIncidentReports() // Change method name
+    @Query("DELETE FROM IncidentReport")
+    suspend fun clearIncidentReports()
 }

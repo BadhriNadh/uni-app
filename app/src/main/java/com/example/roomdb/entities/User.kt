@@ -9,7 +9,7 @@ data class User(
     var firstName: String,
     var lastName: String,
     var cellPhoneNumber: String,
-    val studentNumber: String, // Immutable
+    val studentNumber: String,
     var streamOfStudy: String
-    // Add other fields as necessary
+
 )

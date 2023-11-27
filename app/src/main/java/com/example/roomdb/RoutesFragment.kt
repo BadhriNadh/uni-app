@@ -38,12 +38,12 @@ class RoutesFragment : Fragment() {
 
         val mapTab = tabLayout.newTab()
         mapTab.text = "Map"
-        mapTab.setIcon(android.R.drawable.ic_dialog_map)
+        mapTab.setIcon(R.drawable.baseline_map_24)
         tabLayout.addTab(mapTab, true)
 
         val transitTab = tabLayout.newTab()
         transitTab.text = "Transit"
-        transitTab.setIcon(android.R.drawable.ic_dialog_map)
+        transitTab.setIcon(R.drawable.baseline_directions_bus_24)
         tabLayout.addTab(transitTab)
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -68,7 +68,7 @@ class RoutesFragment : Fragment() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
 
-        // Default fragment when "RoutesFragment" is opened
+
         val defaultFragment = MapsFragment()
         val fm = (activity as FragmentActivity).supportFragmentManager
         val ft: FragmentTransaction = fm.beginTransaction()

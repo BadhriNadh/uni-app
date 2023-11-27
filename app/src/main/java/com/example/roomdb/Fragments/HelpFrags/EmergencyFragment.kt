@@ -13,16 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomdb.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [EmergencyFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class EmergencyFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -47,7 +41,7 @@ class EmergencyFragment : Fragment() {
         emergencyContactsRecyclerView = view.findViewById(R.id.emergencyContactsRecyclerView)
         emergencyContactsAdapter = EmergencyContactsAdapter()
 
-        // For example, you can dynamically add emergency contacts to the adapter
+
         emergencyContactsAdapter.addEmergencyContact(EmergencyContact("CAMPUS SECURITY", "987654321"))
         emergencyContactsAdapter.addEmergencyContact(EmergencyContact("REGIONAL POLICE", "987654321"))
         emergencyContactsAdapter.addEmergencyContact(EmergencyContact("AMBULANCE SERVICE", "987654321"))
@@ -60,7 +54,7 @@ class EmergencyFragment : Fragment() {
         return view
     }
 
-    // Inner class for the custom adapter
+
     inner class EmergencyContactsAdapter :
         RecyclerView.Adapter<EmergencyContactsAdapter.EmergencyContactViewHolder>() {
 
@@ -97,7 +91,7 @@ class EmergencyFragment : Fragment() {
             fun bind(emergencyContact: EmergencyContact) {
                 nameTextView.text = emergencyContact.name
                 callButton.setOnClickListener {
-                    // Handle the call button click by initiating a phone call
+
                     val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:${emergencyContact.phoneNumber}"))
                     startActivity(intent)
                 }

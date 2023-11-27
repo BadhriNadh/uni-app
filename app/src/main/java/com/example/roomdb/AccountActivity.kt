@@ -48,7 +48,7 @@ class AccountActivity : AppCompatActivity() {
                 user = userDao.getUserById(userId)
             }
 
-            // Update UI with user data
+
             user?.let {
                 editTextFirstName.setText(it.firstName)
                 editTextLastName.setText(it.lastName)
