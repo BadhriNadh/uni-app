@@ -5,4 +5,8 @@
     <string name="close_button">close</string>
     <string name="notification_icon_desc">Notification Icon</string>
     <string name="account_icon_desc">Account Icon</string>
+    <string name="stop_6450">Coburg Rd Before Lemarchant St (6450)</string>
+    <string name="stop_8188">Robie St After University Ave (8188)</string>
+    <string name="stop_7144">Lemarchant St Before University Ave (7144)</string>
+    <string name="busses_frequency">next in 10 min or every 30 min</string>
 </resources>

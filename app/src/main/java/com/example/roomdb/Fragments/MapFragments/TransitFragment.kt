@@ -41,7 +41,7 @@ class TransitFragment : Fragment() {
         val sdf = SimpleDateFormat("HHmm", Locale.getDefault())
         val formattedTime = sdf.format(Date(currentTime))
 
-        val call = timingsApiService.getTiming(formattedTime.toInt())
+        val call = timingsApiService.getTiming(formattedTime.toInt() )
         call.enqueue(object : Callback<TimingApiResponse> {
             override fun onResponse(
                 call: Call<TimingApiResponse>,
@@ -72,17 +72,17 @@ class TransitFragment : Fragment() {
             val stopThreeTimings = timings.filter { timing -> timing.number == "7" }
 
             val timingsOneAdapter = TimingsAdapter(stopOneTimings)
-            val recyclerViewOne: RecyclerView = view.findViewById(R.id.NewsRecyclerView1)
+            val recyclerViewOne: RecyclerView = view.findViewById(R.id.StopRecyclerView1)
             recyclerViewOne.layoutManager = LinearLayoutManager(requireContext())
             recyclerViewOne.adapter = timingsOneAdapter
 
             val timingsTwoAdapter = TimingsAdapter(stopTwoTimings)
-            val recyclerViewTwo: RecyclerView = view.findViewById(R.id.NewsRecyclerView2)
+            val recyclerViewTwo: RecyclerView = view.findViewById(R.id.StopRecyclerView2)
             recyclerViewTwo.layoutManager = LinearLayoutManager(requireContext())
             recyclerViewTwo.adapter = timingsTwoAdapter
 
             val timingsThreeAdapter = TimingsAdapter(stopThreeTimings)
-            val recyclerViewThree: RecyclerView = view.findViewById(R.id.NewsRecyclerView3)
+            val recyclerViewThree: RecyclerView = view.findViewById(R.id.StopRecyclerView3)
             recyclerViewThree.layoutManager = LinearLayoutManager(requireContext())
             recyclerViewThree.adapter = timingsThreeAdapter
         })
