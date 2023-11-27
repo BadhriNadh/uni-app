@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/wingtip_black"
     tools:context=".Fragments.SosFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/wingtip_black">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/sosbtn"
@@ -17,6 +19,9 @@
             android:clickable="true"
             android:contentDescription="speakabletext"
             app:backgroundTint="#FF0000"
+            android:src="@drawable/sos_svgrepo_com"
+            app:fabCustomSize="256dp"
+            android:scaleType="center"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
